@@ -492,6 +492,7 @@ body{
     border: 1px solid rgb(185, 181, 181);
     padding: 2px 50px 0 10px;
 }
+
 /* .radio{
     position: relative;
     left: 30px;
@@ -536,4 +537,12 @@ body{
     height: 100%;
     align-items: center;
     position: fixed;
+}
+#preloader{
+  background: #000 url(./assests/1_e_Loq49BI4WmN7o9ItTADg.gif) no-repeat center center;
+  background-size: 28%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
 }

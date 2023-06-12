@@ -29,11 +29,6 @@ const yearhandler = document.querySelector('#yearhandler')
 // console.log(passwordinfo)
 
 const user = JSON.parse(localStorage.getItem('user')) || []
-// idher humny khai variable baniy taky function me use kar sakhy
-let date;
-let month;
-let year;
-let gender; 
 
                 // yah button call karway gy
 const loginbtn = document.querySelector('.login-btn')
@@ -57,9 +52,7 @@ crossbtn.addEventListener('click',()=>{
 })
 
 function loginhandler(){
-    // console.log(loginhandler)
-    // console.log(emaillogin.value)
-    // console.log(passwordinput.value)
+
     if(!emaillogin.value || !passwordinput.value) 
     return alert("Please enter Email & Password to login")
     const founduser = user.filter((user)=>{
@@ -67,10 +60,12 @@ function loginhandler(){
     })
     console.log(founduser , '===>> user found')
     if(!founduser) return alert('this user is not register, please create account first')
-    if(founduser[0].passwordinput === passwordinfo.value){
+    if(founduser[0].passwordinfo === passwordinput.value){
         alert("user is login")
+
         localStorage.setItem("loginuser" , JSON.stringify(founduser[0]))
-        window.location.href= './dashboard/index.html'
+
+        window.location.href ="./dashboard/index.html"
     }else{
         alert('password is incorrct')
     }
@@ -101,11 +96,10 @@ function signuphandler(){
             passwordinfo: passwordinfo.value,
             dateHandler: dateHandler.value,
             monthhandler: monthhandler.value,
-            monthhandler: dateHandler.value,
-            // date: new Date(`${year} - ${month} - ${date} `),
+            yearhandler: yearhandler.value,
             gender
         }
-        console.log(userobject)
+        // console.log(userobject)
         user.push(userobject)
         localStorage.setItem('user' , JSON.stringify(user))
 
@@ -119,6 +113,9 @@ function signuphandler(){
         monthhandler.value = ''
         yearhandler.value = ''
         // console.log(signuphandler)
+
+        modal.classList.toggle('hidden')
+        overlay.classList.toggle('hidden')
     }else{
         alert('plzz fill the input field')
     }
@@ -134,3 +131,10 @@ function getgenderhandler(g){
 function myfuction(){
     alert("Welcome to Login and Signup page")
 }
+
+const loader = document.getElementById('preloader')
+// console.log(loader)
+
+window.addEventListener('load', function(){
+        loader.style.display = 'none'
+})
