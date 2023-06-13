@@ -33,9 +33,9 @@ const user = JSON.parse(localStorage.getItem('user')) || []
                 // yah button call karway gy
 const loginbtn = document.querySelector('.login-btn')
 const signupbtn = document.querySelector('.signup')
-loginbtn.addEventListener('click' , loginhandler)
+
 signupbtn.addEventListener('click' , signuphandler)
-// console.log(loginbtn)
+
 // console.log(signupbtn)
 
 newaccountbtn.addEventListener('click',()=>{
@@ -62,7 +62,6 @@ function loginhandler(){
     if(!founduser) return alert('this user is not register, please create account first')
     if(founduser[0].passwordinfo === passwordinput.value){
         alert("user is login")
-
         localStorage.setItem("loginuser" , JSON.stringify(founduser[0]))
 
         window.location.href ="./dashboard/index.html"
